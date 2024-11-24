@@ -1,14 +1,15 @@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { AlbumArtwork } from "@/features/music/components/album-artwork";
-import { madeForYouAlbums } from "@/features/music/data/albums";
 import { useTrendingMovieCards } from "@/hooks/use-trending-movie-card";
 import { useTrendingMovieSkeletons } from "@/hooks/use-trending-movie-skeleton";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
+import { AlbumArtwork } from "../music/components/album-artwork";
+import { madeForYouAlbums } from "../music/data/albums";
+
 const MovieTab = () => {
     // const { trendingMovies, loading, error } = useFetchTrendingMovies();
-    const { trendingMovies, loading, error } = useSelector((state: RootState) => state.trendingMovies); // Ambil data dari Redux store
+    const { trendingMovies, loading, error } = useSelector((state: RootState) => state.trendingMovies);
 
     // const skeletonCount = trendingMovies?.length || 10;
     const { movieCards } = useTrendingMovieCards(trendingMovies);
