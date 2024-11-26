@@ -1,8 +1,6 @@
 import MusicPage from "@/pages/music-page"
 
-type Props = {}
-
-const Music = (props: Props) => {
+const Music = () => {
     return (
         <div>
             <MusicPage />

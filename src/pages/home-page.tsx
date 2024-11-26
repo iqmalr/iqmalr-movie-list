@@ -18,5 +18,9 @@ const HomePage = () => {
         </div>
     )
 }
-
+export async function getServerSideProps() {
+    return {
+        props: {},
+    };
+}
 export default HomePage

@@ -1,3 +1,4 @@
+import { SideBar } from "@/components/fragments/sidebar";
 import { ReduxProvider } from "@/providers/redux-provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -30,7 +31,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxProvider>
-          {children}
+          <SideBar>
+
+            {children}
+          </SideBar>
         </ReduxProvider>
       </body>
     </html>
