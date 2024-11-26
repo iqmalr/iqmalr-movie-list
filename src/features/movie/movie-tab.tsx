@@ -1,3 +1,4 @@
+import { MovieSkeletonCard } from "@/components/fragments/movie-skeleton-card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useTrendingMovieCards } from "@/hooks/use-trending-movie-card";
@@ -47,6 +48,7 @@ const MovieTab = () => {
                 </p>
             </div>
             <Separator className="my-4" />
+
             <div className="relative">
                 <ScrollArea>
                     <div className="flex space-x-4 pb-4">
@@ -60,6 +62,27 @@ const MovieTab = () => {
                                 height={150}
                             />
                         ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                </ScrollArea>
+            </div>
+            <Separator className="my-4" />
+            <div className="relative">
+                <ScrollArea>
+                    <div className="flex space-x-4 pb-4">
+                        {loading ? (
+                            Array.from({ length: 10 }).map((_, index) => (
+                                <MovieSkeletonCard
+                                    className="transition-opacity duration-300"
+                                    style={{ opacity: loading ? 1 : 0 }}
+                                    key={index}
+                                />
+                            ))
+                        ) : error ? (
+                            <p>{error}</p>
+                        ) : (
+                            movieCards || <p>No trending movies available</p>
+                        )}
                     </div>
                     <ScrollBar orientation="horizontal" />
                 </ScrollArea>
